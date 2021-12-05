@@ -4,8 +4,10 @@ import { Pressable, StyleSheet, View } from "react-native";
 import theme from "../theme";
 import FormikTextInput from "./FormikTextInput";
 import * as Yup from "yup";
+import { useHistory } from "react-router";
 
 import Text from "./Text";
+import useSignIn from "../hooks/useSignIn";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required("Username is required"),
@@ -40,9 +42,17 @@ const SignInForm = ({ onSubmit }) => {
 };
 
 const SignIn = () => {
-
-  const onSubmit = (values) => {
-    console.log(values);
+  const [signIn] = useSignIn();
+  const history = useHistory();
+  
+  const onSubmit = async (values) => {
+    const { username, password } = values;
+    try {
+      await signIn({ username, password });
+      history.push("/");
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return <View>
