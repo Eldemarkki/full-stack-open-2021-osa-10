@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
-  },
+  }
 });
 
 const Text = ({ color, fontSize, fontWeight, style, ...props }) => {

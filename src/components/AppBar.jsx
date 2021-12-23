@@ -35,7 +35,7 @@ const AppBarTab = (props) => {
 };
 
 const SignOutButton = (props) => {
-  return <Pressable style={styles.appBarTitle} onPress={props.signOut}><Text style={styles.appBarTitle}>{props.title}</Text></Pressable>;
+  return <Pressable style={styles.appBarLink} onPress={props.signOut}><Text style={styles.appBarTitle}>{props.title}</Text></Pressable>;
 };
 
 const AppBar = () => {
@@ -54,6 +54,9 @@ const AppBar = () => {
     <ScrollView horizontal>
       <AppBarTab to="/" title="Repositories" />
       {!isLoggedIn && <AppBarTab to="/signin" title="Sign In" />}
+      {!isLoggedIn && <AppBarTab to="/signup" title="Sign up" />}
+      {isLoggedIn && <AppBarTab to="/createReview" title="Create a review" />}
+      {isLoggedIn && <AppBarTab to="/myReviews" title="My reviews" />}
       {isLoggedIn && <SignOutButton signOut={signOut} title="Sign out" />}
     </ScrollView>
   </View>;

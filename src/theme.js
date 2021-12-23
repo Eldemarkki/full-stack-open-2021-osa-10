@@ -9,7 +9,8 @@ const theme = {
     appBar: "#24292e",
     appBarText: "#f1f4f6",
     repositoryItemSeparator: "#e1e5e8",
-    errorColor: "#d73a4a"
+    errorColor: "#d73a4a",
+    blue: "#0463d8"
   },
   fontSizes: {
     body: 14,
@@ -23,6 +24,7 @@ const theme = {
     }),
   },
   fontWeights: {
+    light: "300",
     normal: "400",
     bold: "700",
   },
